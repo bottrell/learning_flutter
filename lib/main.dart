@@ -34,6 +34,11 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  void _restartQuiz() {
+    _totalScore = 0;
+    setState(() => _currentIndex = 0);
+  }
+
   // Hardcoding a list to pass into our column, this is a List of Maps of type <String, object>
   var questions = [
     {
@@ -77,7 +82,7 @@ class _MyAppState extends State<MyApp> {
         // Column takes a list of Widgets as children
         body: _currentIndex < questions.length
             ? Quiz(questions, _answerQuestion, _currentIndex)
-            : Result(_totalScore),
+            : Result(_restartQuiz, _totalScore),
       ),
     );
   }

@@ -4,16 +4,18 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
-  final int resultScore;
+  final VoidCallback callback;
+  final int _resultScore;
 
-  const Result(int this.resultScore, {Key key}) : super(key: key);
+  const Result(VoidCallback this.callback, int this._resultScore, {Key key})
+      : super(key: key);
 
   //getter is like a method that can never recieve arguments
   String get resultPhrase {
     var resultText = "you did it!";
-    if (resultScore <= 8) {
+    if (_resultScore <= 8) {
       resultText = "You scored less than 8";
-    } else if (resultScore <= 20) {
+    } else if (_resultScore <= 20) {
       resultText = "You scored less than 20 but more than 8";
     } else {
       resultText = "You scored over 20!";
@@ -25,7 +27,18 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Text(resultPhrase,
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold)));
+        child: Column(
+      children: [
+        Text(
+          resultPhrase,
+          style: TextStyle(
+            fontSize: 36,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        ElevatedButton(child: Text("Restart Quiz"), onPressed: callback)
+      ],
+    ));
   }
 }
