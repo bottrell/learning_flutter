@@ -12,11 +12,11 @@ class Result extends StatelessWidget {
   String get resultPhrase {
     var resultText = "you did it!";
     if (resultScore <= 8) {
-      resultText = "You are awesome and innocent!";
+      resultText = "You scored less than 8";
     } else if (resultScore <= 20) {
-      resultText = "You are kind of corrupted";
+      resultText = "You scored less than 20 but more than 8";
     } else {
-      resultText = "You are a certified psychopath!";
+      resultText = "You scored over 20!";
     }
     // always have to return something
     return resultText;
