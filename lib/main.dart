@@ -18,8 +18,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _currentIndex = 0;
+  var _totalScore = 0;
 
-  void _answerQuestion() {
+  //passed in from score of answer
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
     setState(() {
       _currentIndex += 1;
     });
@@ -36,27 +40,27 @@ class _MyAppState extends State<MyApp> {
       'questionText': "Whats your favorite color",
       'answers': [
         {'text': 'Black', 'score': 10},
-        {'text':'Red', 'score': 8},
-        {'text':'Blue', 'score': 6},
-        {'text':'White', 'score': 4}
+        {'text': 'Red', 'score': 8},
+        {'text': 'Blue', 'score': 6},
+        {'text': 'White', 'score': 4}
       ]
     },
     {
       'questionText': "what's your favorite animal?",
       'answers': [
-        {'text':'Snake', 'score': 10},
-        {'text':'Elephant', 'score': 8},
-        {'text':'Lion', 'score': 6},
-        {'text':'turtle', 'score': 4}
+        {'text': 'Snake', 'score': 10},
+        {'text': 'Elephant', 'score': 8},
+        {'text': 'Lion', 'score': 6},
+        {'text': 'turtle', 'score': 4}
       ]
     },
     {
       'questionText': "Where are you from?",
       'answers': [
-        {'text':'Michigan', 'score': 10},
-        {'text':'Kentucky', 'score': 8},
-        {'text':'Ohio', 'score': 6},
-        {'text':'Somewhere else', 'score': 4}
+        {'text': 'Michigan', 'score': 10},
+        {'text': 'Kentucky', 'score': 8},
+        {'text': 'Ohio', 'score': 6},
+        {'text': 'Somewhere else', 'score': 4}
       ]
     }
   ];
@@ -73,7 +77,7 @@ class _MyAppState extends State<MyApp> {
         // Column takes a list of Widgets as children
         body: _currentIndex < questions.length
             ? Quiz(questions, _answerQuestion, _currentIndex)
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }

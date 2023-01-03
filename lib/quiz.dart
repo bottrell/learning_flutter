@@ -6,11 +6,11 @@ import './question.dart';
 import './answer.dart';
 
 class Quiz extends StatelessWidget {
-  final VoidCallback callback;
+  final Function(int) callback;
   final int currentIndex;
   final List<Map<String, Object>> questions;
 
-  Quiz(List<Map<String, Object>> this.questions, VoidCallback this.callback,
+  Quiz(List<Map<String, Object>> this.questions, Function(int) this.callback,
       int this.currentIndex,
       {Key key})
       : super(key: key);
@@ -21,8 +21,8 @@ class Quiz extends StatelessWidget {
       children: [
         Question(questions[currentIndex]["questionText"]),
         //RaisedButton is the legacy way to use a button
-        ...(questions[currentIndex]["answers"] as List<String>)
-            .map((answer) => Answer(callback, answer))
+        ...(questions[currentIndex]["answers"] as List<Map<String, Object>>)
+            .map((answer) => Answer(() => callback(answer['score']), answer['text']))
             .toList(),
       ],
     );
