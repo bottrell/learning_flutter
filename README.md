@@ -10,5 +10,5 @@ profile: https://medium.com/@jbottrell404
 [Day 3 - Widget Visibility and Buttons](https://medium.com/@jbottrell404/100-days-of-flutter-day-3-widget-visibility-and-elevatedbutton-3f7055e59d3d)  
 [Day 4 - Custom Widgets and Text](https://medium.com/@jbottrell404/100-days-of-flutter-day-4-custom-widgets-and-text-60a1f360633b)  
 [Day 5 - Maps and Spreading Lists](https://medium.com/@jbottrell404/100-days-of-flutter-day-5-maps-and-spreading-lists-d93f68c1d370)  
-[Day 6 - Outputting Widgets Conditionally](https://medium.com/@jbottrell404/100-days-of-flutter-day-6-outputting-widgets-conditionally-4910efb0bb4e)
+[Day 6 - Outputting Widgets Conditionally](https://medium.com/@jbottrell404/100-days-of-flutter-day-6-outputting-widgets-conditionally-4910efb0bb4e)\
 [Day 7 - Computed Properties and Function Pointers](https://medium.com/@jbottrell404/100-days-of-flutter-day-7-computed-properties-and-function-pointers-33ba411721c)
