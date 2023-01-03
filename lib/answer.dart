@@ -17,7 +17,7 @@ class Answer extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
           ),
-          child: Text('Answer 1'),
+          child: Text(answerText),
           onPressed: callbackfunction,
         ));
   }

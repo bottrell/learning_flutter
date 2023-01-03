@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-
+import './quiz.dart';
 // want separate blocks between packages and our own personal files
 import './question.dart'; // need a relative path
 import './answer.dart';
+import './result.dart';
 
 
 void main() {
@@ -23,21 +24,25 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _currentIndex += 1;
     });
-    print("Answer chosen!");
+    if (_currentIndex < questions.length) {
+      print("Answer chosen!");
+    } else {
+      print("no more questions!");
+    }
   }
 
   // Hardcoding a list to pass into our column, this is a List of Maps of type <String, object>
   var questions = [
     {
-      'questionText': "Whats your favorite color", 
+      'questionText': "Whats your favorite color",
       'answers': ['Black', 'Red', 'Blue', 'White']
     },
     {
-      'questionText': "what's your favorite animal?", 
+      'questionText': "what's your favorite animal?",
       'answers': ['Snake', 'Elephant', 'Lion', 'turtle']
     },
     {
-      'questionText': "Where are you from?", 
+      'questionText': "Where are you from?",
       'answers': ['Michigan', 'Kentucky', 'Ohio', 'Somewhere else']
     }
   ];
@@ -52,15 +57,9 @@ class _MyAppState extends State<MyApp> {
           title: Text('Hello, Flutter!'),
         ),
         // Column takes a list of Widgets as children
-        body: Column(
-          children: [
-            Question(questions[_currentIndex]["questionText"]),
-            //RaisedButton is the legacy way to use a button
-            (questions[_currentIndex]["answers"] as List<String>).map(
-              (answer) => Answer(_answerQuestion, answer)
-            ).toList(),
-          ],
-        ),
+        body: _currentIndex < questions.length
+            ? Quiz(questions, _answerQuestion, _currentIndex)
+            : Result(),
       ),
     );
   }
