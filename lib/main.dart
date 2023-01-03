@@ -5,7 +5,6 @@ import './question.dart'; // need a relative path
 import './answer.dart';
 import './result.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -35,15 +34,30 @@ class _MyAppState extends State<MyApp> {
   var questions = [
     {
       'questionText': "Whats your favorite color",
-      'answers': ['Black', 'Red', 'Blue', 'White']
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text':'Red', 'score': 8},
+        {'text':'Blue', 'score': 6},
+        {'text':'White', 'score': 4}
+      ]
     },
     {
       'questionText': "what's your favorite animal?",
-      'answers': ['Snake', 'Elephant', 'Lion', 'turtle']
+      'answers': [
+        {'text':'Snake', 'score': 10},
+        {'text':'Elephant', 'score': 8},
+        {'text':'Lion', 'score': 6},
+        {'text':'turtle', 'score': 4}
+      ]
     },
     {
       'questionText': "Where are you from?",
-      'answers': ['Michigan', 'Kentucky', 'Ohio', 'Somewhere else']
+      'answers': [
+        {'text':'Michigan', 'score': 10},
+        {'text':'Kentucky', 'score': 8},
+        {'text':'Ohio', 'score': 6},
+        {'text':'Somewhere else', 'score': 4}
+      ]
     }
   ];
 
